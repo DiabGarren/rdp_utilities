@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import ProfileIcon from "./profileIcon";
+import { useEffect, useState } from "react";
 
 export default function Header({ pageName }: any) {
-    let userId = localStorage.getItem("userId");
+    const [userId, setUserId] = useState("");
+
+    useEffect(() => setUserId(localStorage.getItem("userId")!), []);    
     
     if (!userId) {
         return (
