@@ -3,25 +3,119 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --blue-light: #bfdee8;
+    --blue-dark: #00799f;
+
+    --red-light: #ff9393;
+    --red-dark: #910505;
+
+    --green-light: #50f650;
+    --green-dark: #028202;
+
+    --grey-light: #ccc;
+    --grey-dark: #707070;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+    box-sizing: border-box;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    font-family: Inter;
+}
+
+@layer components {
+    .btn {
+        display: flex;
+        width: 100%;
+        height: 45px;
+
+        margin: 10px 0 0 0;
+        padding: 10px;
+
+        font-size: 20px;
+
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
+
+        @media print {
+            display: none;
+        }
+    }
+
+    .blue {
+        border: 2px solid var(--blue-dark);
+        background-color: var(--blue-dark);
+    }
+
+    .blue-hover {
+        color: var(--blue-dark);
+        background-color: var(--blue-light);
+    }
+
+    .red {
+        border: 2px solid var(--red-dark);
+        background-color: var(--red-dark);
+    }
+
+    .red-hover {
+        color: var(--red-dark);
+        background-color: var(--red-light);
+    }
+
+    .green {
+        border: 2px solid var(--green-dark);
+        background-color: var(--green-dark);
+    }
+
+    .green-hover {
+        color: var(--green-dark);
+        background-color: var(--green-light);
+    }
+
+    .grey {
+        border: 2px solid var(--grey-dark);
+        background-color: var(--grey-dark);
+    }
+
+    .grey-hover {
+        color: var(--grey-dark);
+        background-color: var(--grey-light);
+    }
+
+    .btn-blue {
+        @apply btn blue;
+    }
+
+    .btn-blue:hover {
+        @apply blue-hover;
+    }
+
+    .btn-red {
+        @apply btn red;
+    }
+
+    .btn-red:hover {
+        @apply red-hover;
+    }
+
+    .btn-green {
+        @apply btn green;
+    }
+
+    .btn-green:hover {
+        @apply green-hover;
+    }
+
+    .btn-grey {
+        @apply btn grey;
+    }
+
+    .btn-grey:hover {
+        @apply grey-hover;
+    }
 }
