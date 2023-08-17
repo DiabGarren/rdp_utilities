@@ -1,15 +1,18 @@
 "use client";
 import Header from "@/components/header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
     const [user, setUser] = useState({});
     let warning;
 
-    if (localStorage.getItem("userId")) {
-        const win: Window = window;
-        win.location = "/dashboard";
-    }
+    useEffect(() => {
+        if (localStorage.getItem("userId")) {
+            const win: Window = window;
+            win.location = "/dashboard";
+        }
+    }, []);
+
 
     return (
         <div>
@@ -28,7 +31,9 @@ export default function Home() {
                 <button className="btn-blue">Login</button>
                 <div>
                     <p className="inline">Don&apos;t have an account?</p>
-                    <button className="text-blue-dark hover:text-blue-light hover:bg-blue-dark">Register</button>
+                    <button className="text-blue-dark hover:text-blue-light hover:bg-blue-dark">
+                        Register
+                    </button>
                 </div>
             </main>
         </div>
