@@ -7,7 +7,8 @@ export default function Home() {
     let warning;
 
     if (localStorage.getItem("userId")) {
-        window.location = "/dashboard";
+        const win: Window = window;
+        win.location = "/dashboard";
     }
 
     return (
